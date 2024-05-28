@@ -1,3 +1,30 @@
-<form>
-  TODO
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+  <h1>Contact Us</h1>
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" formControlName="name">
+    <div *ngIf="contactForm.controls.name.errors && contactForm.controls.name.touched" class="error">
+      <div *ngIf="contactForm.controls.name.errors['required']">this field is required</div>
+      <div *ngIf="contactForm.controls.name.errors['maxlength']">the maximum length is {{ contactForm.controls.name.errors['maxlength']['requiredLength'] }}</div>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email">
+    <div *ngIf="contactForm.controls.email.errors && contactForm.controls.email.touched" class="error">
+      <div *ngIf="contactForm.controls.email.errors['required']">this field is required</div>
+      <div *ngIf="contactForm.controls.email.errors['email']">the field should be an email</div>
+    </div>
+  </div>
+  <div>
+    <label for="message">Message:</label>
+    <textarea id="message" type="message" formControlName="message"></textarea>
+    <div *ngIf="contactForm.controls.message.errors && contactForm.controls.message.touched" class="error">
+      <div *ngIf="contactForm.controls.message.errors['required']">this field is required</div>
+    </div>
+  </div>
+  <button type="button" (click)="onSubmit()" [disabled]="!contactForm.valid">Send</button>
 </form>
+
+<router-outlet></router-outlet>

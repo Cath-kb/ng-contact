@@ -1,0 +1,35 @@
+form {
+  margin: auto;
+  padding: 0.5em;
+  max-width: 350px;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.1em 0.2em;
+  margin: 0.5em 0;
+}
+
+.error {
+  color: #f00;
+}
+
+input.ng-touched.ng-invalid,
+input.ng-touched.ng-invalid:focus,
+input.ng-touched.ng-invalid:focus-visible,
+textarea.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid:focus,
+textarea.ng-touched.ng-invalid:focus-visible {
+  border: solid red;
+  outline-color: red;
+}
+
+button {
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: 5px;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
